@@ -1,4 +1,5 @@
 from youtube_transcript_api import YouTubeTranscriptApi, FetchedTranscript
+from mcp.server.fastmcp import FastMCP
 
 url = "https://www.youtube.com/watch?v=aAItDrJ8-rE"
 
@@ -73,7 +74,24 @@ def youtube_digest(ytt_object: FetchedTranscript) -> str:
     ytt_text_string = " ".join(ytt_text)
     
     return ytt_text_string
+ 
             
+def get_content_digest(url: str) -> str:
+    '''
+    Get the content digest for a given URL.
+    
+    Arguments:
+    url: str - The URL of the content to be summarized
+    
+    Returns:
+    str - The content digest (summary) of the content
+    '''
+    
+    content = extract_youtube_content(url)
+    return youtube_digest(content)
+ 
+    
+
 
 ytt_content = extract_youtube_content(url)
 ytt_digest = youtube_digest(ytt_content)
