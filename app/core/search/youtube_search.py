@@ -1,8 +1,7 @@
 from googleapiclient.discovery import build
 import os
 from dotenv import load_dotenv
-from pprint import pprint
-import json
+
 
 # Load .env variables
 load_dotenv()
@@ -36,7 +35,7 @@ def _youtube_search(query: str, max_results: int = 10) -> dict:
         raise ValueError(f"Error ocurred with url: {e}")
     
     
-def _youtube_video_list(response: dict) -> list:
+def _youtube_video_list(response: dict) -> list[dict]:
     '''
     Process the response from the Youtube API search and extract relevant video information.
     
@@ -65,7 +64,7 @@ def _youtube_video_list(response: dict) -> list:
     return video_list
     
     
-def search_youtube(query: str, max_results: int = 10) -> list:
+def search_youtube(query: str, max_results: int = 10) -> list[dict]:
     '''
     Search for videos on Youtube based on a query and return a list of relevant videos with metadata.
     Calls the hidden functions to perform the search and process the results.
@@ -87,8 +86,7 @@ def search_youtube(query: str, max_results: int = 10) -> list:
 if __name__ == "__main__":
     search_youtube("ai videos 2026")
     
-    
-    
+
     
     
     
