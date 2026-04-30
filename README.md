@@ -1,4 +1,4 @@
-# 🎬 AI Content Digest
+# 🎬 AI Content Digester
 
 > An AI agent that researches, transcribes and summarizes YouTube content.
 
@@ -10,7 +10,30 @@
 
 ## 🧠 What is this?
 
-**AI Content Digest** is an AI agent that takes a topic or question, searches YouTube for relevant videos, fetches their transcripts, and returns a structured summary — all through natural language.
+**AI Content Digester** is an AI agent that takes a topic or question, searches YouTube for relevant videos, fetches their transcripts, and returns a structured summary — all through natural language.
+
+---
+
+## 🔍 Current Problem / Business case
+
+In the world of AI Engineering, a professional in the field could be faced with several problems in his knowledge progress which can include:
+- Information overload from blogs, papers, GitHub, and documentation
+- Time-consuming research and scattered sources
+- Rapidly outdated stack / new stacked and models released each months
+  
+To keep up with new updates on the field, each engineer has to spent a lot of additional effort to study and research.
+
+
+---
+
+## 💡 Solution idealized
+
+AI Content Digester is a tool that collects, summarizes, and organizes AI Engineering content into clear, concise, and up-to-date knowledge.
+In other words it can provide:
+
+- High-quality LLM-powered summaries depending on the model used
+- Source of content from Youtube videos and retrieved via transcripts
+- To be added in next updates: ArXiv for papers to retrieve more detailed scientific-based information
 
 ---
 
