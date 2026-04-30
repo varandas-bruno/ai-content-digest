@@ -48,7 +48,6 @@ def extract_youtube_content(url: str) -> FetchedTranscript:
     if source == "Youtube":
         video_id = url.split(sep="v=")[-1]
         result = ytt_api.fetch(video_id)
-        print(result)
         return result
     else:
         raise ValueError(f"Unsupported source: {url}")
@@ -90,12 +89,5 @@ def get_content_digest(url: str) -> str:
     content = extract_youtube_content(url)
     return youtube_digest(content)
  
-    
-
-
-ytt_content = extract_youtube_content(url)
-ytt_digest = youtube_digest(ytt_content)
-print(ytt_digest)
-
         
     
