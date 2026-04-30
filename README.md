@@ -30,25 +30,22 @@
 User Query
     │
     ▼
-┌─────────────────────────────────────────────────┐
-│                  LangGraph Agent                │
-│                                                 │
-│  ┌──────────┐    ┌──────────────┐               │
-│  │  search  │───▶│  get_video   │               │
-│  │  memory  │    │  transcript  │               │
-│  └────┬─────┘    └──────┬───────┘               │
-│       │                 │                       │
-│  hit  │ miss       ┌────▼──────────┐            │
-│       │            │  summarize    │            │
-│       │            │  content      │            │
-│       │            └──────┬────────┘            │
-│       │                   │                     │
-│       └───────────────────▼                     │
-│                    Response to User             │
-└─────────────────────────────────────────────────┘
-                      │
-                   Ollama
-                 (local LLM)
+┌─────────────────────────────────────────────┐
+│               LangGraph Agent               │
+│                                             │
+│  ┌───────────────┐    ┌───────────────┐     │
+│  │ search_youtube│───▶│ get_transcript│     │
+│  └───────────────┘    └──────┬────────┘     │
+│                              │              │
+│                     ┌────────▼──────────┐   │
+│                     │ summarize_content │   │
+│                     └────────┬──────────┘   │
+│                              │              │
+│                     Response to User        │
+└─────────────────────────────────────────────┘
+                    │
+                 Ollama
+              (local LLM)
 ```
 
 ---
@@ -75,8 +72,8 @@ AI-CONTENT-DIGEST/
 │   ├── core/
 │   │   ├── search/
 │   │   │   └── youtube_search.py   ✅ YouTube search
-│   │   ├── sources/
-│   │   │   └── youtube.py          ✅ Transcript fetch + digest
+│   │   └── sources/
+│   │       └── youtube.py          ✅ Transcript fetch + digest
 │   ├── tools/
 │   │   └── definitions.py          ⬜ MCP tool definitions (WIP)
 │   ├── mcp/
@@ -144,6 +141,17 @@ ollama pull llama3
 ```bash
 python app/agent.py
 ```
+
+---
+
+## 🗺️ Roadmap
+
+- [x] YouTube search module
+- [x] Transcript extraction module
+- [ ] MCP tool definitions
+- [ ] LangGraph agent loop
+- [ ] End-to-end tests
+- [ ] CLI interface
 
 ---
 
