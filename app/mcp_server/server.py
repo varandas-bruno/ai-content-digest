@@ -19,7 +19,13 @@ def search_youtube_tool(query: str, max_results: int = 10) -> list[dict]:
     - search_youtube() -> Returns a list of dict which are all the videos found with metadata included
     
     '''
-    return search_youtube(query, max_results)
+    
+    try:
+        return search_youtube(query, max_results)
+    except Exception as e:
+        print(f"Error in search_youtube_tool: {e}")
+        return []
+    
     
 
 @mcp.tool()
@@ -34,7 +40,13 @@ def transcript_youtube_tool(url: str) -> str:
     Returns:
     str - The content digest of the video
     '''
-    return get_content_digest(url)
+    
+    try:
+        return get_content_digest(url)
+    except Exception as e:
+        print(f"Error in transcript_youtube_tool: {e}")
+        return "Error in getting transcript digest"
+
 
 
 
