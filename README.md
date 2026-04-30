@@ -1,6 +1,6 @@
 # 🎬 AI Content Digest
 
-> An AI agent that researches, transcribes and summarizes YouTube content — with RAG memory to avoid redundant work.
+> An AI agent that researches, transcribes and summarizes YouTube content.
 
 ![Status](https://img.shields.io/badge/status-WIP-yellow)
 ![Python](https://img.shields.io/badge/python-3.11+-blue)
@@ -12,8 +12,6 @@
 
 **AI Content Digest** is an AI agent that takes a topic or question, searches YouTube for relevant videos, fetches their transcripts, and returns a structured summary — all through natural language.
 
-The agent uses a **RAG (Retrieval-Augmented Generation)** layer backed by **ChromaDB** so that previously researched content is retrieved from memory instead of being re-fetched, making repeated queries fast and cost-free.
-
 ---
 
 ## ✨ Features
@@ -21,7 +19,6 @@ The agent uses a **RAG (Retrieval-Augmented Generation)** layer backed by **Chro
 - 🔍 **YouTube search** via YouTube Data API v3
 - 📄 **Transcript extraction** from YouTube videos
 - 🤖 **AI summarization** powered by a local LLM via Ollama
-- 🧠 **RAG memory** with ChromaDB — avoids redundant API calls
 - 🔗 **MCP Tools** — modular, composable agent tools
 - 🔄 **LangGraph orchestration** — stateful agent loop with conditional branching
 
@@ -49,9 +46,9 @@ User Query
 │       └───────────────────▼                     │
 │                    Response to User             │
 └─────────────────────────────────────────────────┘
-         │                      │
-    ChromaDB                 Ollama
-  (local memory)          (local LLM)
+                      │
+                   Ollama
+                 (local LLM)
 ```
 
 ---
@@ -63,8 +60,6 @@ User Query
 | Agent Orchestration | [LangGraph](https://github.com/langchain-ai/langgraph) |
 | LLM | [Ollama](https://ollama.com) (local, e.g. `llama3`, `mistral`) |
 | Agent Tools | MCP (Model Context Protocol) |
-| Vector DB / Memory | [ChromaDB](https://www.trychroma.com/) (local) |
-| Embeddings | `sentence-transformers` |
 | YouTube Search | YouTube Data API v3 |
 | Transcript Fetching | `youtube-transcript-api` |
 | Env management | `pip` + `requirements.txt` |
@@ -82,8 +77,6 @@ AI-CONTENT-DIGEST/
 │   │   │   └── youtube_search.py   ✅ YouTube search
 │   │   ├── sources/
 │   │   │   └── youtube.py          ✅ Transcript fetch + digest
-│   │   └── memory/
-│   │       └── chroma.py           ⬜ ChromaDB wrapper (WIP)
 │   ├── tools/
 │   │   └── definitions.py          ⬜ MCP tool definitions (WIP)
 │   ├── mcp/
@@ -101,14 +94,13 @@ AI-CONTENT-DIGEST/
 
 ## 🔧 Agent Tools (MCP)
 
-The agent exposes 4 composable tools:
+The agent exposes 3 composable tools:
 
 | Tool | Description |
 |---|---|
 | `search_youtube(query, max_results)` | Searches YouTube, returns a list of videos |
 | `get_video_transcript(url)` | Fetches the full transcript of a video |
 | `summarize_content(text, focus)` | Calls the local LLM to generate a summary |
-| `search_memory(query)` | Queries ChromaDB to check if content was already processed |
 
 ---
 
