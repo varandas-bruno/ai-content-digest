@@ -163,4 +163,4 @@ This is a personal learning project in AI Engineering, but feedback and ideas ar
 
 ## 📄 License
 
-MIT © [Your Name]
+MIT © Bruno Varandas
