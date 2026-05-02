@@ -215,16 +215,6 @@ What content do you want to search on Youtube? I will summarize it!
 
 ---
 
-## 🗺️ Roadmap
-
-- [x] YouTube search module
-- [x] Transcript extraction module
-- [x] MCP tool definitions
-- [x] LangGraph agent loop
-- [ ] End-to-end tests
-
----
-
 ## 🤝 Contributing
 
 This is a personal learning project in AI Engineering, but feedback and ideas are welcome. Feel free to open an issue.
