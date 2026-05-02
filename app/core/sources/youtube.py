@@ -1,7 +1,4 @@
 from youtube_transcript_api import YouTubeTranscriptApi, FetchedTranscript
-from mcp.server.fastmcp import FastMCP
-
-url = "https://www.youtube.com/watch?v=aAItDrJ8-rE"
 
 
 def detect_source(url: str) -> str:
@@ -44,7 +41,7 @@ def extract_youtube_content(url: str) -> FetchedTranscript:
     source = detect_source(url)
     ytt_api = YouTubeTranscriptApi()
 
-    # Extract the transcript based on the detected source. 
+    # Extract the transcript based on the detected source. Currently only Youtube is supported, but this can be extended to other sources in the future.
     if source == "Youtube":
         video_id = url.split(sep="v=")[-1]
         result = ytt_api.fetch(video_id)
