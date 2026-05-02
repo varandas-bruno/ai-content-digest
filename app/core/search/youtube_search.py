@@ -11,13 +11,13 @@ yt_api_key = os.getenv("YOUTUBE_API_KEY")
 
 
 # Hidden function with _ 
-def _youtube_search(query: str, max_results: int = 10) -> dict:
+def _youtube_search(query: str, max_results: int = 1) -> dict:
     '''
     Search for videos on Youtube based on a query and return the raw response from the API.
     
     Arguments:
     query: str - The search query to find relevant videos
-    max_results: int - The maximum number of results to return (default is 10)
+    max_results: int - The maximum number of results to return (default is 1)
     
     Returns:
     dict - The raw response from the Youtube API search
@@ -64,14 +64,14 @@ def _youtube_video_list(response: dict) -> list[dict]:
     return video_list
     
     
-def search_youtube(query: str, max_results: int = 10) -> list[dict]:
+def search_youtube(query: str, max_results: int = 1) -> list[dict]:
     '''
     Search for videos on Youtube based on a query and return a list of relevant videos with metadata.
     Calls the hidden functions to perform the search and process the results.
     
     Arguments:
     query: str - The search query to find relevant videos
-    max_results: int - The maximum number of results to return (default is 10)
+    max_results: int - The maximum number of results to return (default is 1)
     
     Returns:
     list[dict] - A list of dictionaries containing video information (title, date, channel, videoId, url)
